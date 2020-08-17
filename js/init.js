@@ -44,4 +44,9 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  var esLoginValido = sessionStorage.getItem("login"); 
+  if (esLoginValido === null) {
+    sessionStorage.setItem("login", false);
+    window.location.replace("login.html");
+  }
 });

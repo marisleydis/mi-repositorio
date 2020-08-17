@@ -15,5 +15,6 @@ function esLoginValido() {
         return false;
     }
     
+    sessionStorage.setItem("login", true);
     return true;
 }

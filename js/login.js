@@ -4,3 +4,16 @@
 document.addEventListener("DOMContentLoaded", function(e){
 
 });
+
+function esLoginValido() {
+    var nombre = document.getElementById("nombre").value;
+    var password = document.getElementById("password").value;
+
+    if (nombre === "" || password === "") {
+        alert("Debe ingresar nombre de usuario y clave.");
+
+        return false;
+    }
+    
+    return true;
+}

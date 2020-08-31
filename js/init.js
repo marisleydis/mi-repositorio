@@ -46,8 +46,8 @@ var getJSONData = function(url){
 document.addEventListener("DOMContentLoaded", function(e){
   var login = document.getElementById("login");
   var usuario = localStorage.getItem("usuario"); 
-  if (usuario === null) {
-    localStorage.setItem("usuario", "");
+  var location = window.location.toString();
+  if (!location.includes("login.html") && usuario === null) {
     window.location.replace("login.html");
   }else if(usuario != null && usuario != "" && login != undefined) {
     login.innerHTML = usuario + ' <input id="cerrar" type="button" value="Cerrar sesión">';
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   if(document.getElementById("cerrar") != undefined) {
     document.getElementById("cerrar").addEventListener("click", function(){
-      localStorage.setItem("usuario", "");
+      localStorage.removeItem("usuario");
       window.location.replace("login.html");
     });
   }

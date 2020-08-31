@@ -59,6 +59,10 @@ footer p {
   transition: ease-in-out color .15s;
 }
 
+.site-header div {
+  color: white;
+  transition: ease-in-out color .15s;
+}
 .light-text {
   color: white;
 }

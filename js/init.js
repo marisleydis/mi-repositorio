@@ -44,9 +44,19 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  var esLoginValido = sessionStorage.getItem("login"); 
-  if (esLoginValido === null) {
-    sessionStorage.setItem("login", false);
+  var login = document.getElementById("login");
+  var usuario = localStorage.getItem("usuario"); 
+  if (usuario === null) {
+    localStorage.setItem("usuario", "");
     window.location.replace("login.html");
+  }else if(usuario != null && usuario != "" && login != undefined) {
+    login.innerHTML = usuario + ' <input id="cerrar" type="button" value="Cerrar sesión">';
+  }
+
+  if(document.getElementById("cerrar") != undefined) {
+    document.getElementById("cerrar").addEventListener("click", function(){
+      localStorage.setItem("usuario", "");
+      window.location.replace("login.html");
+    });
   }
 });

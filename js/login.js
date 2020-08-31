@@ -15,6 +15,6 @@ function esLoginValido() {
         return false;
     }
     
-    sessionStorage.setItem("login", true);
+    localStorage.setItem("usuario", nombre);
     return true;
 }

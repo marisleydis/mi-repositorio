@@ -50,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function(e){
   if (!location.includes("login.html") && usuario === null) {
     window.location.replace("login.html");
   }else if(usuario != null && usuario != "" && login != undefined) {
-    login.innerHTML = usuario + ' <input id="cerrar" type="button" value="Cerrar sesión">';
+    login.innerHTML = usuario;
+    //  + ' <input id="cerrar" type="button" value="Cerrar sesión">'
   }
 
   if(document.getElementById("cerrar") != undefined) {

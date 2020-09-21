@@ -23,8 +23,16 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <div class="py-2 d-none d-md-inline-block" id="login"></div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span id="login"></span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a id="cerrar" class="dropdown-item" href="#">Cerrar sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
   <main role="main">
@@ -52,7 +60,8 @@
         <dd>
           <p id="category"></p>
         </dd>
-
+        <dt>Productos Relacionados</dt>
+        <dd id="relatedProducts"></dd>
         <dt>Imágenes ilustrativas</dt>
         <dd>
           <div class="row text-center text-lg-left pt-2" id="productImagesGallery">

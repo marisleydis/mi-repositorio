@@ -1,6 +1,25 @@
 var product = {};
 var comments = [];
 
+function getRelatedProducts(array){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            let products = resultObj.data;
+            let htmlContentToAppend = "<ul>";
+            for(let i = 0; i < array.length; i++){
+                let index = array[i];
+                if (index < products.length) {
+                    htmlContentToAppend += `<li>${products[index].name}</li>`
+                }
+        
+                document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+            }
+            htmlContentToAppend += "</ul>";
+        }
+    });
+}
+
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
@@ -87,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+            getRelatedProducts(product.relatedProducts)
         }
     });
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){

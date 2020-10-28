@@ -52,14 +52,105 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main" class="pb-5">
+    <div class="text-center p-4">
+      <h2>Carrito de Compras</h2>
     </div>
-  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <div class="list-group-item list-group-item-action">
+            <div class="row">
+              <div class="col col-2 text-center"><b>Imagen</b></div>
+              <div class="col col-4 text-center"><b>Descripcion</b></div>
+              <div class="col col-1 text-center"><b>Cant.</b></div>
+              <div class="col col-2 text-center"><b>Costo</b></div>
+              <div class="col col-1 text-center"><b>Total</b></div>
+              <div class="col col-1 text-center"><b>$</b></div>
+            </div>
+          </div>
+          <div class="list-group" id="prod-list-container">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="list-group-item list-group-item-action mb-2">
+            <div class="row">
+              <h4><b>Resumen</b></h4>
+            </div>
+            <div class="row mb-2">
+              <div class="col-6">
+                Subtotal
+              </div>
+              <div class="col-6 text-right">
+                <span id="cart-subtotal">0.00</span>
+              </div>
+            </div>
+            <hr>
+            <div class="row mb-2">
+              <div class="col-12">
+                <span>Método de pago</span>&nbsp;
+                <button id="button-pago" data-toggle="modal" data-target="#pago-modal">...</button>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-12">
+                <small class="text-muted">
+                  <div id="resumen-pago"></div>
+                </small>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-6">
+                <span>Envío</span>&nbsp;
+              </div>
+              <div class="col-6 text-right">
+                <span id="cart-shipping">$ 0.00</span>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-12 mb-2">
+                <label for="shipping-address">Dirección</label>
+                <input id="shipping-address" class="form-control" type="text">
+              </div>
+              <div class="col-12 mb-2">
+                <label for="shipping-country">País</label>
+                <select id="shipping-country" class="form-control">
+                  <option>Argentina</option>
+                  <option>Brasil</option>
+                  <option>Chile</option>
+                  <option>Paraguay</option>
+                  <option>Perú</option>
+                  <option selected="selected">Uruguay</option>
+                </select>
+              </div>
+              <div class="col-12 mb-2">
+                <label for="shipping-type">Tipo</label>
+                <select id="shipping-type" class="form-control" onChange="actualizarCarrito();">
+                  <option value="15">Premium (2-5 dias)</option>
+                  <option value="7">Express (5-8 dias)</option>
+                  <option value="5" selected="selected">Standard (12-15 dias)</option>
+                </select>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-6">
+                <h5><b>Total</b></h5>
+              </div>
+              <div class="col-6 text-right">
+                <h5><b><span id="cart-total">0.00</span></b></h5>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-right">
+              <button class="btn btn-primary" onclick="finalizarCompra();">Finalizar compra</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -68,6 +159,36 @@
       <div></div>
     </div>
   </div>
+<!-- Modal -->
+<div class="modal fade" id="pago-modal" tabindex="-1" aria-labelledby="pago-modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pago-modalLabel">Seleccione pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-2">
+          <div class="col-6">
+            <span>Pago</span>
+          </div>
+          <div class="col-6 text-right">
+            <select id="payment-type" class="form-control">
+              <option>Tarjeta de crédito</option>
+              <option>Transferencia bancaria</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="actualizarPago()">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>

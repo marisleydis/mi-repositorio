@@ -66,27 +66,29 @@
         <p class="lead">Muestro mis datos personales.</p>
     </div>
     <div class="container">
-      <form>
-        <div class="form-group">
-          <label for="fullName">Nombre y Apellidos</label>
-          <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp">
+      <div class="row">
+        <div class="col col-12">
+          <form id="formProfile">
+            <div class="form-group">
+              <label for="fullName">Nombre y Apellidos</label>
+              <input type="text" class="form-control" id="fullName" name="fullName">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="age">Edad</label>
+              <input type="text" class="form-control" id="age" name="age">
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefono de Contacto</label>
+              <input type="tel" class="form-control" id="phone" name="phone">
+            </div>
+            <button type="button" class="btn btn-primary" id="saveProfile">Guardar cambios</button>
+          </form>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-        </div>
-        <div class="form-group">
-          <label for="age">Edad</label>
-          <input type="text" class="form-control" id="age">
-        </div>
-        
-        
-        <div class="form-group">
-          <label for="phone">Telefono de Contacto</label>
-          <input type="tel" class="form-control" id="phone" aria-describedby="phoneHelp">
-        </div>
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-      </form>
+      </div>
     </div>
   </main>
   <footer class="text-muted bg-light">
